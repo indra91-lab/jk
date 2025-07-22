@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dead Simple Chat Clone with Mod Menu</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Room Link Bar -->
+  <div id="room-link" title="Click to copy room URL"></div>
+
+  <!-- Chat Messages Container -->
+  <main id="chat"></main>
+
+  <!-- Message Input Form -->
+  <form id="input-area" onsubmit="sendMessage(); return false;">
+    <input id="messageInput" autocomplete="off" placeholder="Type a message…" autofocus />
+    <button type="submit" id="sendBtn">Send</button>
+  </form>
+
+  <!-- Mod Menu Toggle Button -->
+  <button id="modToggleBtn" style="position: fixed; top: 10px; right: 10px; z-index:1000; padding:8px 12px; background:#8ab4f8; border:none; border-radius:5px; cursor:pointer;">Mod Menu</button>
+
+  <!-- Mod Menu Panel -->
+  <div id="modMenu" style="display:none; position: fixed; top: 50px; right: 10px; width: 320px; max-height: 400px; background: #222; border-radius: 8px; padding: 15px; overflow-y: auto; box-shadow: 0 0 10px #000; z-index: 999;">
+    <h3 style="margin-top: 0; color:#8ab4f8;">Mod Menu</h3>
+    <label>
+      Password: <input type="password" id="modPassword" style="width:100%; padding:5px; border-radius:4px; border:none; margin-bottom:10px;" />
+    </label>
+    <button id="modLoginBtn" style="width:100%; padding:8px; background:#5a72eb; border:none; border-radius:5px; color:#fff; cursor:pointer;">Login</button>
+
+    <div id="modControls" style="display:none; margin-top: 15px;">
+      <button id="clearChatBtn" style="width:100%; margin-bottom: 10px; padding:8px; background:#ff4b4b; border:none; border-radius:5px; color:#fff; cursor:pointer;">Clear Chat</button>
+      <h4 style="color:#8ab4f8; margin-bottom: 8px;">Messages</h4>
+      <div id="modMessageList" style="max-height: 200px; overflow-y: auto;"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
